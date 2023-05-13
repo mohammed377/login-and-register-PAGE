@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!--Sign in-->
+  <div class="container">
+    <div class="toggle_buttons">
+      <button id="sign-in-button">SIGN IN</button>
+      <button id="sign-up-button">SIGN UP</button>
+    </div>
+    <div class="inner_container">
+      <div id="sign-in-form">
+        <h1>Sign in to your account </h1>
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+        <div id="g_id_onload"
+          data-client_id="YOUR_GOOGLE_CLIENT_ID"
+          data-login_uri="https://your.domain/your_login_endpoint"
+          data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin"
+          data-type="standard"
+          data-size="large"
+          data-theme="outline"
+          data-text="sign_in_with"
+          data-shape="rectangular"
+          data-logo_alignment="left">
+        </div>
+    
+        <form action="login.php" method="post">
+          <input type="text" name="username" placeholder="Username">
+          <input type="password" name="password" placeholder="Password">
+          <div class="bottom_form">
+          <a href="forgot-password.php">Forgot Password?</a>
+
+          <input type="submit" value="Log In">
+        </div>
+
+
+        
+        </form>
+
+
+    </div>
+
+    <div id="sign-up-form">
+      <h1>Sign Up</h1>
+      <script src="https://accounts.google.com/gsi/client" async defer></script>
+      <div id="g_id_onload"
+        data-client_id="YOUR_GOOGLE_CLIENT_ID"
+        data-login_uri="https://your.domain/your_login_endpoint"
+        data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin"
+        data-type="standard"
+        data-size="large"
+        data-theme="outline"
+        data-text="sign_in_with"
+        data-shape="rectangular"
+        data-logo_alignment="left">
+      </div>
+      <form action="signup.php" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="confirm_password" placeholder="Confirm Password">
+        <div class="bottom_form">
+          <a href="login.php">Already have an account?</a>
+          <input type="submit" value="Sign Up">
+
+        </div>
+      </form>
+    </div>
+    </div>
+</div>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
+
+
+<!---
+
+  ----------- React COMPONENTS --------------
+
+    import React, { useState } from "react";
+
+  const SignInButton = ({ onClick }) => {
+    const [isSignIn, setIsSignIn] = useState(true);
+
+    return (
+      <button
+        onClick={() => setIsSignIn(true)}
+        className={isSignIn ? "active" : ""}
+      >
+        Sign In
+      </button>
+    );
+  };
+
+  const SignUpButton = ({ onClick }) => {
+    const [isSignIn, setIsSignIn] = useState(false);
+
+    return (
+      <button
+        onClick={() => setIsSignIn(false)}
+        className={!isSignIn ? "active" : ""}
+      >
+        Sign Up
+      </button>
+    );
+  };
+
+  const LoginForm = () => {
+    return (
+      <form action="login.php" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <div class="bottom_form">
+          <a href="forgot-password.php">Forgot Password?</a>
+          <input type="submit" value="Log In">
+        </div>
+      </form>
+    );
+  };
+
+  const SignUpForm = () => {
+    return (
+      <form action="signup.php" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="confirm_password" placeholder="Confirm Password">
+        <div class="bottom_form">
+          <a href="login.php">Already have an account?</a>
+          <input type="submit" value="Sign Up">
+        </div>
+      </form>
+    );
+  };
+
+  const LoginPage = () => {
+    const [isSignIn, setIsSignIn] = useState(true);
+
+    return (
+      <div className="container">
+        <div className="toggle_buttons">
+          <SignInButton onClick={() => setIsSignIn(true)} />
+          <SignUpButton onClick={() => setIsSignIn(false)} />
+        </div>
+        <div className="inner_container">
+          {isSignIn ? (
+            <LoginForm />
+          ) : (
+            <SignUpForm />
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  export default LoginPage;
+
+
+-->
